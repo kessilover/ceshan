@@ -1,0 +1,235 @@
+body{
+background-color : #F2F2F2;
+
+}
+
+
+
+.nav-item{
+font-size : 18px;
+padding-left : 20px;
+font-family : 'El Messiri', cursive;
+color : #858C91 !important;
+font-weight : bold;
+padding-right : 20px !important;
+
+}
+
+.form-group .form-control{
+
+    width : 200px ;
+    background: white no-repeat 10px 6px #444;
+    border: 0 none;
+    font: bold 12px Arial,Helvetica,Sans-serif;
+    color: #777;
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    border-radius: 20px;
+    text-shadow: 0 2px 2px rgba(0, 0, 0, 0.3);
+    -webkit-box-shadow: 0 1px 0 rgba(255, 255, 255, 0.1), 0 1px 3px rgba(0, 0, 0, 0.2) inset;
+    -moz-box-shadow: 0 1px 0 rgba(255, 255, 255, 0.1), 0 1px 3px rgba(0, 0, 0, 0.2) inset;
+    box-shadow: 0 1px 0 rgba(255, 255, 255, 0.1), 0 1px 3px rgba(0, 0, 0, 0.2) inset;
+    -webkit-transition: all 0.7s ease 0s;
+    -moz-transition: all 0.7s ease 0s;
+    -o-transition: all 0.7s ease 0s;
+    transition: all 0.7s ease 0s;
+
+}
+
+
+#inputEmail, #inputPassword{
+    width : 10cm !important;
+    background-color : #fce300;
+
+
+
+}
+.login{
+
+background-color : red;}
+
+#login{
+    position : fixed;
+    top : 20%;
+    left : 20%;
+    border: solid black 3px;
+
+}
+
+
+
+.form-group .form-control:focus {
+
+width : 250 px !important;
+}
+
+.user-item{
+
+padding-left : 10px;
+color : #858C91  !important;
+}
+
+.login-item {
+padding-left: 20px !important;
+font-family : 'El Messiri', cursive;
+color : #858C91  !important;
+
+}
+
+
+
+.navbar-form{
+padding-left : 30px;
+
+
+}
+
+.navbar-inverse{
+background-color : #1C2331;
+border-color : white;
+padding : 10px;
+
+}
+
+.navbar-inverse .navbar-brand {
+    color : #3F729B;
+    font-family: 'Lalezar', cursive;
+    font-size : 22px;
+    padding-right : 5cm;
+    border-radius : 1px;
+
+    }
+
+
+
+@media(min-width:268px) and (max-width:491px){
+.navbar-inverse .navbar-brand {
+    color : #3F729B;
+    font-family: 'Lalezar', cursive;
+    font-size : 22px;
+    padding-right : 20px;
+    background-color : red;
+    }
+
+}
+
+/* main */
+#main{
+
+ background-color : #fce300;
+
+}
+
+
+.image{
+margin-top : 10px;
+margin-bottom : 10px;
+border : black solid 1px;
+width : 100%;
+height : 370px;
+
+
+}
+.image img{
+border : black solid 2px;
+margin : 5px;
+background-color : #fce;
+position : relative;
+right : 0px;
+
+width : 200px;
+height : 360px;
+
+
+}
+
+
+ /* posts */
+
+ .story-text{
+    padding-bottom : 100px;
+
+
+ }
+
+.story-text p {
+ font-size : 18px;
+}
+
+
+
+
+
+
+.footer{
+margin-top : 10px;
+position : absolute;
+left : 0;
+right: 0;
+bottom : 0;
+background-color : #323232;
+
+}
+
+/* ------ Login templates -----  */
+
+
+main{
+    margin-top: 50px;
+}
+
+.main-content {
+/*    background-color:#009edf;*/
+    border: 2px solid #285F8C;
+    margin: 0 auto;
+    max-width: 450px;
+    padding: 20px 40px;
+    color: #ccc;
+    text-shadow: none;
+
+}
+
+
+.input-group{
+	margin: 20px 0px;
+}
+.input-group-addon {
+    color: #285F8C ;
+    font-size: 17px;
+}
+.login-button{
+    margin: 0px auto;
+    max-width: 200px;;
+
+}
+
+
+.form-header{
+    max-width: 450px;
+    margin: 0 auto;
+    background-color: #285F8C;
+    color: #fff;
+    width: 100% ;
+    padding: 20px 0px;
+
+}
+.remember{
+    color: black;
+}
+
+
+.panel-footer{
+color : #285F8C;}
+
+.panel-footer a{
+
+color : #AF4417;
+font-style : oblique; }
+
+#logo{
+position : absolute;
+left : 50%;
+padding : 5px;
+}
+
+

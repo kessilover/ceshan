@@ -1,0 +1,137 @@
+<html><head><link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"><link rel="stylesheet" href="https://bootswatch.com/cosmo/bootstrap.min.css"><style>
+    .btn-xs{
+    border-radius:5px !important;
+    }
+    textarea{
+    resize : none;
+    width:100%;
+    }
+    #writer{
+    margin-bottom : 5px;
+    width:100%;
+    }
+    #botton{
+    margin-top:5px;
+    }
+</style></head>
+
+
+
+
+    <body>
+<div class="mainbody container-fluid">
+    <div class="row">
+        <div class="navbar-wrapper">
+            <div>
+                <div role="navigation" class="navbar navbar-default navbar-static-top">
+                    <div class="container-fluid">
+                        <div class="navbar-header navbar-right">
+                            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                                <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span>
+                            </button>
+                            <a class="navbar-brand  navbar-right" href="/" style="margin-right:-8px; margin-top:-5px;">
+                                <img alt="Brand" src="https://lut.im/7trApsDX08/GeilMRp1FIm4f2p7.png" width="30px" height="30px">
+                            </a>
+                            <a class="navbar-brand navbar-right" href="/">admin*</a>
+
+                        </div>
+                        <div class="navbar-collapse collapse">
+                            <ul class="nav navbar-nav">
+                                 <li><a href="{% url 'stories:logout_user' %}">Logout</a></li>
+                                <li><a href="#">Manage Stories</a></li>
+
+
+                                <li><a href="{% url 'stories:new_story' %}">Add Story</a></li>
+                            </ul>
+                            <ul class="nav navbar-nav navbar-left">
+
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div style="padding-top:20px;">&nbsp;</div>
+    <div class="col-lg-2 col-md-2"></div>
+        <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12">
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <div class="media">
+                        <div class="pull-right">
+                            <img class="thumbnail img-responsive" src="https://lut.im/7JCpw12uUT/mY0Mb78SvSIcjvkf.png" width="150px" height="300px">
+                        </div>
+
+                        <div class="media-body">
+
+                            <h4 align="right"><strong>{{story.title}}</strong></h4>
+                            <hr>
+
+                            <div align="right"> {{story.summary}} </div>
+
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+                    {% for chapter in chapters %}
+                <div class="panel panel-default">
+                    <div class="panel-body">
+                        <div class="media">
+                            <div class="media-body" align="right">
+                                 {% autoescape off%}
+
+                               {{chapter.chapter}}
+                                {% endautoescape %}
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                    {% endfor %}
+
+             <div class="panel panel-default">
+                <div class="panel-body">
+                    <div class="media">
+                        <div class="media-body">
+                            <h4>Post A Review</h4>
+
+                            <form action="{% url 'stories:addcomment' story.id %}" method="post" role="form">
+                                    {% csrf_token %}
+                                <input type="text" name="writer" id="writer">
+
+                                <textarea placeholder=" Write a review..." rows="5" name="comment"></textarea>
+                                <input type="submit" class="btn btn-basic" value="comment" id="botton">
+                            </form>
+
+
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <div align="center">
+    {% if chapters.has_other_pages %}
+  <ul class="pagination">
+    {% if chapters.has_previous %}
+      <li><a href="{% url 'stories:post' story.id chapters.previous_page_number %}">&laquo;</a></li>
+    {% else %}
+      <li class="disabled"><span>&laquo;</span></li>
+    {% endif %}
+
+    {% if chapters.has_next %}
+      <li><a href="{% url 'stories:post' story.id chapters.next_page_number %}">&raquo;</a></li>
+    {% else %}
+      <li class="disabled"><span>&raquo;</span></li>
+    {% endif %}
+  </ul>
+{% endif %}
+        </div>
+
+        </div>
+
+
+
+    </div>
+
+</div>
+</body></html>

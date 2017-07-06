@@ -1,0 +1,156 @@
+<html><head>
+    <title>Hello</title>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://bootswatch.com/cosmo/bootstrap.min.css">
+    <script src="https://cloud.tinymce.com/stable/tinymce.min.js?apikey=f20k9qkm3e9ed7zjkspbbw2eo8be1mmp5voesvuebe1iz4gd"></script>
+<style>
+    .mainbody {
+    background:#f0f0f0;
+}
+/* Special class on .container surrounding .navbar, used for positioning it into place. */
+.navbar-wrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 20;
+  margin-left: -15px;
+  margin-right: -15px;
+}
+
+/* Flip around the padding for proper display in narrow viewports */
+.navbar-wrapper .container {
+  padding-left: 0;
+  padding-right: 0;
+}
+.navbar-wrapper .navbar {
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+.navbar-content
+{
+    width:320px;
+    padding: 15px;
+    padding-bottom:0px;
+}
+.navbar-content:before, .navbar-content:after
+{
+    display: table;
+    content: "";
+    line-height: 0;
+}
+.navbar-nav.navbar-right:last-child {
+    margin-right: 15px !important;
+}
+.navbar-footer
+{
+    background-color:#DDD;
+}
+.navbar-footer-content { padding:15px 15px 15px 15px; }
+.dropdown-menu {
+padding: 0px;
+overflow: hidden;
+}
+
+.brand_network {
+    color: #9D9D9D;
+    float: left;
+    position: absolute;
+    left: 70px;
+    top: 30px;
+    font-size: smaller;
+}
+
+.post-content {
+    margin-left:58px;
+}
+
+.badge-important {
+    margin-top: 3px;
+    margin-left: 25px;
+    position: absolute;
+}
+
+body {
+    background-color: #e8e8e8;
+}
+</style>
+
+
+</head>
+<body>
+<div class="mainbody container-fluid">
+    <div class="row">
+        <div class="navbar-wrapper">
+            <div class="container-fluid">
+                <div class="navbar navbar-default navbar-static-top" role="navigation">
+                    <div class="container-fluid">
+                        <div class="navbar-header">
+                            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                                <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span>
+                            </button>
+                            <a class="navbar-brand" href="./ORqmj" style="margin-right:-8px; margin-top:-5px;">
+                                <img alt="Brand" src="https://lut.im/7trApsDX08/GeilMRp1FIm4f2p7.png" width="30px" height="30px">
+                            </a>
+                            <a class="navbar-brand" href="{% url 'stories:home' %}">{{user.username}}*</a>
+
+                        </div>
+                        <div class="navbar-collapse collapse">
+                            <ul class="nav navbar-nav">
+                                <li><a href="#">Manage Stories</a></li>
+
+
+                                <li><a href="#">Add Story</a></li>
+                            </ul>
+                            <ul class="nav navbar-nav navbar-right">
+                                <li><a href="{% url 'stories:logout_user' %}">Logout</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div style="padding:50px;">&nbsp;</div>
+
+        <div class="col-lg-offset-2 col-md-offset-2 col-lg-8 col-md-8 col-sm-12 col-xs-12">
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    {% if error %}
+                    <h1>{{error}}</h1>
+                    {% else %}
+                    <h1 class="panel-title pull-left" style="font-size:30px;">Add A New Chapter</h1>
+                    {% endif %}
+                </div>
+            </div>
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <h3 class="panel-title pull-left">Chapter</h3>
+                    <br><br>
+                    <form class="form-horizontal"id="form1" method="post" action="">
+                            {% csrf_token %}
+                        <textarea id="chapter" name="chapter"></textarea>
+                    <input type="submit" class="btn btn-default">
+                    <input type="reset" class="btn btn-default">
+                    </form>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+<script>
+tinymce.init({
+  selector: 'textarea',
+  convert_urls: false,
+  height: 500,
+  menubar: false,
+  toolbar: 'undo redo | bold italic | alignleft aligncenter alignright alignjustify',
+  content_css: [
+    '//fonts.googleapis.com/css?family=Lato:300,300i,400,400i',
+    '//www.tinymce.com/css/codepen.min.css']
+});
+</script>
+</body>
+</html>

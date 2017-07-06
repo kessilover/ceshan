@@ -1,0 +1,87 @@
+{% extends 'stories/core.html' %}
+
+{% block main %}
+{% load staticfiles%}
+
+
+
+
+    <section id="blog-section" >
+
+     <div class="container-fluid">
+<div class="row" id="image">
+             <img src="{% static 'stories/images/ceshan.jpg' %}" class="img-responsive">
+</div>
+       <div class="row">
+
+           <div class="col-lg-3">
+
+
+        <!--=====================
+               CATEGORIES
+          ======================-->
+             <div class="widget-sidebar">
+              <h2 class="title-widget-sidebar">// CATEGORIES</h2>
+                 <button class="categories-btn">Audio</button>
+                 <button class="categories-btn">Blog</button>
+                 <button class="categories-btn">Gallery</button>
+                 <button class="categories-btn">Images</button>
+             </div>
+
+
+
+
+             </div>
+         <div class="col-lg-9">
+           <div class="row">
+
+
+               {% for story in stories %}
+
+               <div class="col-lg-12 col-md-12">
+             <aside>
+                <div class="content-title">
+				<div class="text-center">
+				<h3><a href="{% url 'stories:post' story.id 1%}">{{story.title}}</a></h3>
+				</div>
+				</div>
+
+                 <div class="content-summary">
+				 <hr>
+                     <div class="text-left">
+
+				<p align="right">{{story.summary}}</p>
+				</div>
+				</div>
+				<div class="content-footer">
+				<img class="user-small-img" src="https://lh3.googleusercontent.com/-uwagl9sPHag/WM7WQa00ynI/AAAAAAAADtA/hio87ZnTpakcchDXNrKc_wlkHEcpH6vMwCJoC/w140-h148-p-rw/profile-pic.jpg">
+				<span style="font-size: 16px;color: #fff;">{{story.author}}</span>
+				<span class="pull-right">
+				<a href="#" data-toggle="tooltip" data-placement="left" title="Comments"><i class="fa fa-comments" ></i> 30</a>
+				<a href="#" data-toggle="tooltip" data-placement="right" title="Loved"><i class="fa fa-heart"></i> 20</a>
+				</span>
+
+				</div>
+             </aside>
+            </div>
+               {% endfor%}
+           </div>
+          </div>
+
+<!--           // RECENT POST===========-->
+
+           </div>
+         </div>
+
+    </section>
+
+
+
+
+<script src="https://code.jquery.com/jquery-3.2.1.js" integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE=" crossorigin="anonymous"></script>
+
+
+
+
+
+{% endblock %}
