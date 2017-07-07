@@ -1,11 +1,77 @@
-{% if chapters %}
+{% extends 'stories/base.html' %}
+{% block main%}
+<div class="container-fluid songs-container">
 
-<table>
-    {% for chapter in chapters %}
-    <tr>
-        <td>{{chapter.title}}</td></tr>
-    {% endfor%}
-</table>
-{%else%}
-<h1>NO chapters in here</h1>
-{% endif%}
+     <div style="padding-top:50px;">&nbsp;</div>
+    <div class="row" style="">
+
+        <!-- Left Album Info -->
+        <div class="col-sm-2 col-md-2">
+
+        </div>
+
+        <!-- Right Song Info -->
+
+
+
+
+
+
+        <div class="col-sm-8 col-md-8">
+                <h3 class="pull-right" style="padding-right:20px;">جميع الأقسام</h3>
+
+
+            <div class="panel panel-default">
+                <div class="panel-body">
+
+
+
+                    {% if error_message %}
+                        <p><strong>{{ error_message }}</strong></p>
+                    {% endif %}
+
+                    <table class="table" >
+                        <thead>
+                        <tr>
+                            <th>حذف</th>
+                            <th>تصحيح</th>
+                            <th>العنوان</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {% for chapter in story.chapter_set.all %}
+                            <tr>
+                                  <td>
+                                    <form action="" method="post" style="display: inline;">
+                                        {% csrf_token %}
+                                        <input type="hidden" name="chapter_id" value="{{ chapter.id }}" />
+                                        <button type="submit" class="btn btn-danger btn-xs">
+                                            <span class="glyphicon glyphicon-remove"></span>&nbsp; Delete
+                                        </button>
+                                    </form>
+                                </td>
+                                 <td>
+                                    <a target="_blank" href="">
+                                        <button type="button" class="btn btn-success btn-xs">
+                                            <span class="glyphicon glyphicon-edit"></span>&nbsp; Play
+                                        </button>
+                                    </a>
+                                </td>
+                                <td>{{ chapter.title }}</td>
+
+
+
+                            </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+{% endblock%}

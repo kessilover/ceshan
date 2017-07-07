@@ -10,35 +10,66 @@
 
      <div class="container-fluid">
 <div class="row" id="image">
-             <img src="{% static 'stories/images/ceshan.jpg' %}" class="img-responsive">
+             <img src="{% static 'stories/images/ceshan.png' %}" class="img-responsive">
 </div>
-       <div class="row">
+       <div class="row" >
+<!-- TAKEN -->
+<div class="container" style="padding-top:10px;">
+    <hr>
+    <h1>أحدث القصص</h1>
+    <hr>
+     {% for story in stories %}
+  <div class="well">
+      <div class="media">
+      	<a class="pull-left" href="#">
+    		<img class="media-object img-responsive" src="{{story.story_cover.url}}" width="200" height="100%">
+  		</a>
 
-           <div class="col-lg-3">
+
+  		<div class="media-body">
+
+            <h3 class="media-heading pull-right" align="right"><a href="{% url 'stories:post' story.id 1 %}">{{story.title}} </a></h3>
+
+<br>
+
+            <br><hr>
+          <p align="right">{{story.summary}}</p>
+            <br>
+            <div class="media-footer" align="right">
+          <ul  class="list-inline list-unstyled">
+  			<li><span><i class="glyphicon glyphicon-calendar"></i> {{story.pub_date}}</span></li>
+            <li>|</li>
+            <span><i class="glyphicon glyphicon-comment"></i> {{story.comment_set.all.count}}</span>
+
+			</ul>
+                </div>
+       </div>
+    </div>
+  </div>
+    {% endfor%}
+</div>
+<!-- END TAKEN-->
 
 
-        <!--=====================
-               CATEGORIES
-          ======================-->
-             <div class="widget-sidebar">
-              <h2 class="title-widget-sidebar">// CATEGORIES</h2>
-                 <button class="categories-btn">Audio</button>
-                 <button class="categories-btn">Blog</button>
-                 <button class="categories-btn">Gallery</button>
-                 <button class="categories-btn">Images</button>
+
+<!--
+           <div class="col-lg-2">
+
+
+
+
+
+
+
              </div>
-
-
-
-
-             </div>
-         <div class="col-lg-9">
+         <div class="col-lg-8">
            <div class="row">
 
 
                {% for story in stories %}
 
                <div class="col-lg-12 col-md-12">
+
              <aside>
                 <div class="content-title">
 				<div class="text-center">
@@ -53,7 +84,7 @@
 				<p align="right">{{story.summary}}</p>
 				</div>
                      <hr>
-                     <div class="text-left" id="tags">
+                     <div class="text-right " id="tags">
                          {{story.tags}}
                      </div>
 				</div>

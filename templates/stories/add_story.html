@@ -63,7 +63,7 @@
             </div>
 
             <hr>
-            <form class="form-horizontal" method="post" action="" role="form">
+            <form class="form-horizontal" method="post" action="" role="form"  enctype="multipart/form-data" >
                 <div class="panel panel-default">
                      {% csrf_token %}
                      {% include 'stories/form_template.html' %}
@@ -72,7 +72,6 @@
                     <div class="panel-body">
                         <h3 class="panel-title pull-left"></h3>
                             <input type="submit" class="btn btn-default">
-                            <input type="reset" class="btn btn-default">
                             <br>
                             <br>
                     </div>

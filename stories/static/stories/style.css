@@ -180,7 +180,7 @@ main{
 
 .main-content {
 /*    background-color:#009edf;*/
-    border: 2px solid #285F8C;
+    border: 2px solid #333;
     margin: 0 auto;
     max-width: 450px;
     padding: 20px 40px;
@@ -204,15 +204,7 @@ main{
 }
 
 
-.form-header{
-    max-width: 450px;
-    margin: 0 auto;
-    background-color: #285F8C;
-    color: #fff;
-    width: 100% ;
-    padding: 20px 0px;
 
-}
 .remember{
     color: black;
 }

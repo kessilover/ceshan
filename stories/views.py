@@ -24,7 +24,7 @@ def login_user(request):
             if user.is_active:
                 login(request, user)
 
-                return redirect('stories:home')
+                return redirect('stories:profile')
             else:
                 return render(request, 'stories/login.html', {'error_message': "your account has been disabled"})
         else:
@@ -79,8 +79,7 @@ def post(request, story_id, page=1):
         except EmptyPage:
             chapters = paginator.page(paginator.num_pages)
         return render(request, 'stories/post.html', {'story': story, 'chapters': chapters})
-    else:
-        return redirect('stories:add_chapter',story_id)
+
 
 
 
@@ -89,7 +88,7 @@ def add_story(request):
     if not request.user.is_authenticated():
         return redirect('stories:login_user')
     else:
-        form = StoryForm(request.POST or None)
+        form = StoryForm(request.POST,  request.FILES or None)
         if form.is_valid():
             story = form.save(commit=False)
             story.author = request.user
@@ -143,7 +142,7 @@ def addcomment(request, story_id):
         comment.comment = review
         comment.save()
         chapters = story.chapter_set.all()
-        return redirect('stories:post', story_id)
+        return redirect('stories:post', story_id = story_id, page = 1)
     return render(request, 'stories/post.html', {'story' : story, 'chapters' : chapters})
 
 class EditStory(UpdateView):
@@ -172,7 +171,7 @@ def manageChapters(request, story_id):
     else:
         story = Story.objects.get(id = story_id)
         chapters = story.chapter_set.all()
-        return render(request, 'stories/chapters.html', {'chapters' : chapters})
+        return render(request, 'stories/chapters.html', {'story' : story})
 
 
 

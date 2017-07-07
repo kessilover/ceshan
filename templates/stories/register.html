@@ -1,4 +1,4 @@
-{% extends 'stories/core.html' %}
+{% extends 'stories/base_login.html' %}
 
 
 {% block main %}
@@ -9,7 +9,7 @@
       <form action="{% url 'stories:register_user' %}" method="post" role="form">
           {% csrf_token %}
            <div class="form-header">
-              <h1 class="text-center ">Register form </h1>
+              <h1 class="text-center ">تسجيل الدخول </h1>
             </div>
         <div class="main-content">
             {% if error_message %}
@@ -17,22 +17,23 @@
             {% endif %}
               <div class="input-group " id="forms">
                 <span class="input-group-addon"><span class="glyphicon glyphicon-user" aria-hidden="true"></span></span>
-                <input id="username" type="text" class="form-control"  name="username" placeholder="Enter your username">
+                <input id="username" type="text" class="form-control"  name="username" placeholder="أدخل اسم المستخدم">
               </div>
                 <div class="input-group">
                 <span class="input-group-addon"><span class="glyphicon glyphicon-envelope" aria-hidden="true"></span></span>
-                <input id="email" type="text" class="form-control" name="email" placeholder="Enter your email address">
+                <input id="email" type="text" class="form-control" name="email" placeholder="أدخل عنوان بريدك الالكتروني">
               </div>
               <div class="input-group">
                 <span class="input-group-addon"><span class="glyphicon glyphicon-lock" aria-hidden="true"></span></span>
-                <input id="password" type="password" class="form-control" name="password" placeholder="Enter your Password">
+                <input id="password" type="password" class="form-control" name="password" placeholder="ادخل رقمك السري">
+              </div>
+            <div class="form-group ">
+                 <button type="submit" class="btn btn-success">اضغط</button>
               </div>
                 <div class="panel-footer">
-                    Already have an account? <a href="{% url 'stories:login_user' %}">Click here</a> to login.
+                   هل لديك حساب بالفعل؟<a href="{% url 'stories:login_user' %}">اضغط هنا</a> لتسجيل الدخول.
                 </div>
-              <div class="form-group ">
-                 <button type="submit" class="btn btn-success">Submit</button>
-              </div>
+
 
 
         </div>

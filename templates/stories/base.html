@@ -1,82 +1,159 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>{% block title %} جسور و الجميلة {% endblock %}</title>
-    {% load staticfiles %}
-    <link rel="shortcut icon" type="image/png" href="{%  static 'favicon.ico' %}"/>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-    <link href='https://fonts.googleapis.com/css?family=Satisfy' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" type="text/css" href="{% static 'stories/style.css' %}"/>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
-    <link href="https://fonts.googleapis.com/css?family=Lalezar|Rakkas|Amiri" rel="stylesheet">
-    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-    <!--  Font Awesome CDN-->
-    <script src="https://use.fontawesome.com/a9dfa66850.js"></script>
-
-
-    <script src=""></script>
+<html>
 </head>
-<body>
-<nav class="navbar navbar-inverse" >
-    <div class="container-fluid">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://bootswatch.com/cosmo/bootstrap.min.css">
+ <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+<style>
+    .btn-xs{
+    border-radius:5px !important;
+    }
+        .mainbody {
+    background:#f0f0f0;
+}
+/* Special class on .container surrounding .navbar, used for positioning it into place. */
+.navbar-wrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 20;
+  margin-left: -15px;
+  margin-right: -15px;
+}
 
-        <!-- Header -->
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#topNavBar">
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand" href="">جسور و الجميلة</a>
+/* Flip around the padding for proper display in narrow viewports */
+.navbar-wrapper .container {
+  padding-left: 0;
+  padding-right: 0;
+}
+.navbar-wrapper .navbar {
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+.navbar-content
+{
+    width:320px;
+    padding: 15px;
+    padding-bottom:0px;
+}
+.navbar-content:before, .navbar-content:after
+{
+    display: table;
+    content: "";
+    line-height: 0;
+}
+.navbar-nav.navbar-right:last-child {
+    margin-right: 15px !important;
+}
+.navbar-footer
+{
+    background-color:#DDD;
+}
+.navbar-footer-content { padding:15px 15px 15px 15px; }
+.dropdown-menu {
+padding: 0px;
+overflow: hidden;
+}
+
+.brand_network {
+    color: #9D9D9D;
+    float: left;
+    position: absolute;
+    left: 70px;
+    top: 30px;
+    font-size: smaller;
+}
+
+.post-content {
+    margin-left:58px;
+}
+
+.badge-important {
+    margin-top: 3px;
+    margin-left: 25px;
+    position: absolute;
+}
+
+body {
+    background-color: #e8e8e8;
+}
+</style>
+<head>
+    <body>
+
+<div class="mainbody container-fluid">
+    <div class="row">
+        <div class="navbar-wrapper">
+              <div class="navbar navbar-default navbar-static-top" role="navigation">
+                    <div class="container-fluid">
+                        <div class="navbar-header navbar-right">
+                            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                                <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span>
+                            </button>
+                            <a class="navbar-brand  navbar-right" href="{% url 'stories:home' %}" style="margin-right:-8px; margin-top:-5px;">
+
+                            </a>
+                            <a class="navbar-brand navbar-right" href="{% url 'stories:home' %}">  جسور و الجميلة*</a>
+
+                        </div>
+                            <div class="navbar-collapse collapse">
+                             <ul class="nav navbar-nav">
+
+
+                                 <li>
+                                     <a href="{% url 'stories:profile' %}"><span class="glyphicon glyphicon-user"></span>{{user.username}}</a>
+                                    </ul>
+
+
+                                 </div>
+                                     </li>
+                             </ul>
+
+
+
+                    </div>
+
+
+
+
+
+
+                    </div>
+
+                        </div>
+                    </div>
         </div>
+        {% block main%}
+    {% endblock %}
 
-        <!-- Items -->
-
-            <div class="collapse navbar-collapse" id="topNavBar">
-
-                        <ul class="nav navbar-nav">
-                            <li class="nav-item"><a href="">&nbsp; القصص </a></li>
-                            <li class="nav-item"><a href="">&nbsp; الكتاب </a></li>
-                        </ul>
-                        <form class="navbar-form navbar-left" role="search" method="get" action="">
-                            <div class="form-group">
-                                <input type="text" class="form-control" id="search" name="q" placeholder="البحث " value="{{ request.GET.q }}">
-
-                            </div>
-
-                        </form>
-                        <ul class="nav navbar-nav navbar-right">
-                            <li>
-                                {% if name %}
-                                <a href="" class="user-name">
-                                    &nbsp; {{name}}</i>
-
-                                </a>
-                                {% else %}
-                                <a href="{% url 'stories:login_user' %}" class="user-item">
-                                    &nbsp; <i class="fa fa-user-circle-o fa-lg" aria-hidden="true"></i>
-
-                                </a>
-                                {% endif %}
-                            </li>
-                            <li>
-                                <a href="{% url 'stories:logout_user'%} " class="login-item">
-                                    &nbsp; <i class="fa fa-power-off fa-lg" aria-hidden="true"></i>
-
-                                </a>
-                            </li>
-                        </ul>
-
-         </div>
     </div>
-</nav>
-{% block body %}
-{% endblock %}
-<div class="footer">
-  <p>Posted by: Hege Refsnes</p>
-  <p>Contact information: <a href="mailto:someone@example.com">
-  someone@example.com</a>.</p>
 </div>
+
+ <script>
+         $(document).ready(function(){
+         $('[data-toggle="tooltip"]').tooltip();
+         });
+
+
+
+
+var acc = document.getElementsByClassName("accordion");
+var i;
+
+for (i = 0; i < acc.length; i++) {
+  acc[i].onclick = function() {
+    this.classList.toggle("active");
+    var panel = this.nextElementSibling;
+    if (panel.style.maxHeight){
+      panel.style.maxHeight = null;
+    } else {
+      panel.style.maxHeight = panel.scrollHeight + "px";
+    }
+  }
+}
+</script>
 </body>
 </html>

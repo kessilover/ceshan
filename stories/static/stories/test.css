@@ -1,5 +1,5 @@
 
-body{background-color:#EEF2F3;}
+body{background-color:#f5fbef;}
 
 
 .navbar {
@@ -11,7 +11,7 @@ body{background-color:#EEF2F3;}
     right :0;
     left :0;
     top:0;
-    background-color: #2C353A !important;
+    background-color: #222222 !important;
 
 
 }
@@ -22,14 +22,18 @@ body{background-color:#EEF2F3;}
     padding: 20px 10px !important;
     font-size: 18px;
     line-height: 20px;
+    font-family: 'Cairo', sans-serif;
 }
 .navbar-brand>img{ width:80%;}
 
 .navbar-wrapper .navbar-nav > li > a {
-    font-size:18px;
-    color:#EDF1F2 !important;
+    font-size:14px;
+    color:#f4ebdf !important;
     padding-top:20px;
+    font-family: 'Changa', sans-serif;
 }
+
+
 
 .navbar-wrapper .navbar-nav > li > a:hover {
    height:55px !important;
@@ -43,12 +47,12 @@ body{background-color:#EEF2F3;}
     color:#fff;
 }
 
-#blog-section{margin-top:0px;margin-bottom:80px;}
-.content-title{padding:5px;background-color:#fff;}
+#blog-section{margin-top:0px;margin-bottom:20px;}
+.content-title{padding:2px;background-color:#fff;}
 .content-title h3 a{color:#34495E;text-decoration:none; transition: 0.5s;}
 .content-title h3 a:hover{color:#F39C12; }
 
-.content-summary{padding:3px;background-color:#fff;}
+.content-summary{padding:0px;background-color:#fff;}
 .content-summary p {color:#34495E;text-decoration:none; margin:10px;}
 .content-title h3 a:hover{color:#F39C12; }
 
@@ -68,7 +72,7 @@ body{background-color:#EEF2F3;}
     color:#F39C12;
 }
 aside{
-    margin-top: 30px;
+    margin-top: 20px;
     -webkit-box-shadow: 1px 4px 16px 3px rgba(199,197,199,1);
     -moz-box-shadow: 1px 4px 16px 3px rgba(199,197,199,1);
     box-shadow: 1px 4px 16px 3px rgba(199,197,199,1);

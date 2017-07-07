@@ -82,35 +82,40 @@ body {
 <body>
 <div class="mainbody container-fluid">
     <div class="row">
-        <div class="navbar-wrapper">
-            <div class="container-fluid">
-                <div class="navbar navbar-default navbar-static-top" role="navigation">
+         <div class="navbar-wrapper">
+              <div class="navbar navbar-default navbar-static-top" role="navigation">
                     <div class="container-fluid">
-                        <div class="navbar-header">
+                        <div class="navbar-header navbar-right">
                             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
                                 <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span>
                             </button>
-                            <a class="navbar-brand" href="./ORqmj" style="margin-right:-8px; margin-top:-5px;">
-                                <img alt="Brand" src="https://lut.im/7trApsDX08/GeilMRp1FIm4f2p7.png" width="30px" height="30px">
+                            <a class="navbar-brand  navbar-right" href="{% url 'stories:home' %}" style="margin-right:-8px; margin-top:-5px;">
+
                             </a>
-                            <a class="navbar-brand" href="{% url 'stories:home' %}">{{user.username}}*</a>
+                            <a class="navbar-brand navbar-right" href="{% url 'stories:home' %}">  جسور و الجميلة*</a>
 
                         </div>
-                        <div class="navbar-collapse collapse">
-                            <ul class="nav navbar-nav">
-                                <li><a href="#">Manage Stories</a></li>
+                          <div class="navbar-collapse collapse">
+                            <ul class="nav navbar-nav navbar-right" style="padding-right:10cm;">
+                                 <li style="padding-right:5cm;"><a href="{% url 'stories:logout_user' %}"><span class="glyphicon glyphicon-log-in"></span> 	&nbsp;الخروج</a></li>
 
 
-                                <li><a href="#">Add Story</a></li>
+                                <li style="padding-right:10cm; font-size:20px;"><a href="{% url 'stories:new_story' %}">إضافة قصة </a></li>
                             </ul>
-                            <ul class="nav navbar-nav navbar-right">
-                                <li><a href="{% url 'stories:logout_user' %}">Logout</a></li>
+                            <ul class="nav navbar-nav navbar-left">
+
+                            </ul>
+                        </div>
+
+
+
+
+
+
+                    </div>
                             </ul>
                         </div>
                     </div>
-                </div>
-            </div>
-        </div>
         <div style="padding:50px;">&nbsp;</div>
 
         <div class="col-lg-offset-2 col-md-offset-2 col-lg-8 col-md-8 col-sm-12 col-xs-12">
@@ -133,8 +138,9 @@ body {
                         <input type="text" id="title" name="title" class="form-control">
                         <br>
                         <textarea id="chapter" name="chapter"></textarea>
-                    <input type="submit" class="btn btn-default">
-                    <input type="reset" class="btn btn-default">
+<br>
+                    <input type="submit" class="btn btn-default" value="اضغط هنا">
+
                     </form>
 
                 </div>

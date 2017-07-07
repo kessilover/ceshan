@@ -16,10 +16,9 @@ class Story(models.Model):
     author = models.ForeignKey(User, on_delete=models.CASCADE)
     summary = models.TextField(max_length=500, null=False)
     pub_date = models.DateField(auto_now_add=True, blank=False, null=False)
-    isCross = models.BooleanField(default=False)
-    tags = models.CharField(max_length=250, null=False)
     rating = models.CharField(max_length=3, choices=rating_choices, default=rating_choices[1])
     has_chapter = models.BooleanField(default=False)
+    story_cover = models.FileField()
 
     def __str__(self):
         return self.title + " - " + self.author.username

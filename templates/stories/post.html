@@ -21,52 +21,84 @@
     <body>
 <div class="mainbody container-fluid">
     <div class="row">
-        <div class="navbar-wrapper">
-            <div>
-                <div role="navigation" class="navbar navbar-default navbar-static-top">
+       <div class="navbar-wrapper ">
+
+                <div class="navbar navbar-default navbar-static-top" role="navigation">
                     <div class="container-fluid">
                         <div class="navbar-header navbar-right">
                             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
                                 <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span>
                             </button>
-                            <a class="navbar-brand  navbar-right" href="/" style="margin-right:-8px; margin-top:-5px;">
-                                <img alt="Brand" src="https://lut.im/7trApsDX08/GeilMRp1FIm4f2p7.png" width="30px" height="30px">
+                            <a class="navbar-brand  navbar-right" href="{% url 'stories:home' %}" style="margin-right:-8px; margin-top:-5px;">
+
                             </a>
-                            <a class="navbar-brand navbar-right" href="/">admin*</a>
+                            <a class="navbar-brand navbar-right" href="{% url 'stories:home' %}">  جسور و الجميلة*</a>
 
                         </div>
                         <div class="navbar-collapse collapse">
-                            <ul class="nav navbar-nav">
-                                 <li><a href="{% url 'stories:logout_user' %}">Logout</a></li>
-                                <li><a href="#">Manage Stories</a></li>
+                             <ul class="nav navbar-nav">
+
+                                 {% if user.username %}
+                                 <li>
+                                <div class="dropdown">
+                                    <button class="btn btn-default dropdown-toggle" type="button" id="menu1" data-toggle="dropdown"><span class="glyphicon glyphicon-user"></span>&nbsp; {{user.username}}
+                                    <span class="caret"></span></button>
+                                    <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
+                                      <li ><a role="menuitem" tabindex="-1" href="{% url 'stories:profile' %}">صفحة خاصة</a></li>
+                                        <li  class="divider"></li>
+                                      <li ><a role="menuitem" tabindex="-1" href="{% url 'stories:logout_user' %}">الخروج</a></li>
+
+                                    </ul>
 
 
-                                <li><a href="{% url 'stories:new_story' %}">Add Story</a></li>
+                                 </div>
+                                     </li>
+                             </ul>
+
+                             <ul class="nav navbar-nav" >
+
+                                 {% else %}
+                                  <li class="logout"><a href="{% url 'stories:register_user' %}"><span class="glyphicon glyphicon-user"></span>&nbsp;التسجيل</a></li>
+                                 <li class="login"><a href="{% url 'stories:login_user' %}"><span class="glyphicon glyphicon-log-in"></span>&nbsp;الدخول</a></li>
+                                 {% endif %}
+                                     <form class="navbar-form navbar-nav">
+  <div class="input-group" >
+    <input type="text" align="right" class="form-control" placeholder="البحث">
+    <div class="input-group-btn">
+      <button class="btn btn-default" type="submit">
+        <i class="glyphicon glyphicon-search"></i>
+      </button>
+    </div>
+  </div>
+</form>
+
+
                             </ul>
-                            <ul class="nav navbar-nav navbar-left">
 
+
+                    </div>
                             </ul>
                         </div>
                     </div>
                 </div>
-            </div>
-        </div>
         <div style="padding-top:20px;">&nbsp;</div>
     <div class="col-lg-2 col-md-2"></div>
         <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12">
             <div class="panel panel-default">
                 <div class="panel-body">
                     <div class="media">
+                        <div align="right"> </div>
                         <div class="pull-right">
-                            <img class="thumbnail img-responsive" src="https://lut.im/7JCpw12uUT/mY0Mb78SvSIcjvkf.png" width="150px" height="300px">
+
+                            <img class="thumbnail img-responsive" src="{{story.story_cover.url}}" width="150px" height="300px">
                         </div>
 
                         <div class="media-body">
-
-                            <h4 align="right"><strong>{{story.title}}</strong></h4>
+                            <h4 align="right"id="author"><strong>{{story.author}}</strong> : الكاتب</h4>
+                            <h4 align="right" id="story"><strong>{{story.title}}</strong> : اسم القصة</h4>
                             <hr>
 
-                            <div align="right"> {{story.summary}} </div>
+                            <div align="right" id="summary"> <strong>ملخص : </strong>{{story.summary}} </div>
 
                         </div>
 

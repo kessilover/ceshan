@@ -1,47 +1,6 @@
-</head>
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-<link rel="stylesheet" href="https://bootswatch.com/cosmo/bootstrap.min.css">
-<style>
-    .btn-xs{
-    border-radius:5px !important;
-    }
-</style>
-<head>
-    <BODY>
-
-<div class="mainbody container-fluid">
-    <div class="row">
-        <div class="navbar-wrapper">
-            <div class="container-fluid">
-                <div class="navbar navbar-default navbar-static-top" role="navigation">
-                    <div class="container-fluid">
-                        <div class="navbar-header navbar-right">
-                            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                                <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span>
-                            </button>
-                            <a class="navbar-brand  navbar-right" href="{% url 'stories:home' %}" style="margin-right:-8px; margin-top:-5px;">
-                                <img alt="Brand" src="https://lut.im/7trApsDX08/GeilMRp1FIm4f2p7.png" width="30px" height="30px">
-                            </a>
-                            <a class="navbar-brand navbar-right" href="{% url 'stories:home' %}">{{user.username}}*</a>
-
-                        </div>
-                        <div class="navbar-collapse collapse">
-                            <ul class="nav navbar-nav">
-                                 <li><a href="{% url 'stories:logout_user' %}">Logout</a></li>
-                                <li><a href="#">Manage Stories</a></li>
-
-
-                                <li><a href="{% url 'stories:new_story' %}">Add Story</a></li>
-                            </ul>
-                            <ul class="nav navbar-nav navbar-left">
-
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div style="padding-top:20px;"> </div>
+{% extends 'stories/base.html' %}
+{% block main %}
+        <div style="padding-top:50px;"> </div>
         <div class="col-lg-3 col-md-3">
             <div class="panel panel-default">
                 <div class="panel-body">
@@ -67,10 +26,10 @@
                 <div class="panel-body">
                     <div class="pull-left">
                         <a href="#">
-                            <img class="media-object img-circle" src="https://lut.im/7JCpw12uUT/mY0Mb78SvSIcjvkf.png" style="margin-right:8px; margin-top:-5px;" width="50px" height="50px">
+                            <img class="media-object img-circle" src="{{s.story_cover.url}}" style="margin-right:8px; margin-top:-5px;" width="50px" height="50px">
                         </a>
                     </div>
-                    <h4 align="right"><a href="{% url 'stories:chapters' s.id %}"  style="text-decoration:none;" ><strong>{{s.title}}</strong></a> – <small><small><span style="text-decoration:none; color:grey;">{{s.chapter_set.all.count}} Chpaters</span></small></small></h4>
+                    <h4 align="right"><a href="{% url 'stories:post' s.id 1 %}"  style="text-decoration:none;" ><strong>{{s.title}}</strong></a> – <small><small><span style="text-decoration:none; color:grey;">{{s.chapter_set.all.count}} Chpaters</span></small></small></h4>
                     <span>
 
                     </span>
@@ -100,9 +59,4 @@
             <h1>Add new stories</h1>
             {% endif %}
         </div>
-
-    </div>
-</div>
-
-}
-</BODY>
+{% endblock %}

@@ -5,12 +5,12 @@
         {% load staticfiles %}
     <meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>blog</title>
+	<title>Cesur Ve Guzel</title>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
     <link href='https://fonts.googleapis.com/css?family=Satisfy' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" type="text/css" href="{% static 'stories/test.css' %}"/>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
-    <link href="https://fonts.googleapis.com/css?family=Lalezar|Rakkas|Amiri" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Cairo|Changa" rel="stylesheet">
     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
         <link rel="stylesheet" href="https://bootswatch.com/cosmo/bootstrap.min.css">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -22,6 +22,8 @@
     padding-top:20px;
 
     }
+
+
 
 #image{
 margin-top:0px;
@@ -44,7 +46,7 @@ opacity :0.5;
                             <a class="navbar-brand  navbar-right" href="{% url 'stories:home' %}" style="margin-right:-8px; margin-top:-5px;">
 
                             </a>
-                            <a class="navbar-brand navbar-right" href="{% url 'stories:home' %}">{{user.username}}*</a>
+                            <a class="navbar-brand navbar-right" href="{% url 'stories:home' %}">  جسور و الجميلة*</a>
 
                         </div>
                         <div class="navbar-collapse collapse">
@@ -56,9 +58,9 @@ opacity :0.5;
                                     <button class="btn btn-default dropdown-toggle" type="button" id="menu1" data-toggle="dropdown"><span class="glyphicon glyphicon-user"></span>&nbsp; {{user.username}}
                                     <span class="caret"></span></button>
                                     <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
-                                      <li ><a role="menuitem" tabindex="-1" href="{% url 'stories:profile' %}">Profile</a></li>
+                                      <li ><a role="menuitem" tabindex="-1" href="{% url 'stories:profile' %}">صفحة خاصة</a></li>
                                         <li  class="divider"></li>
-                                      <li ><a role="menuitem" tabindex="-1" href="{% url 'stories:logout_user' %}">Logout</a></li>
+                                      <li ><a role="menuitem" tabindex="-1" href="{% url 'stories:logout_user' %}">الخروج</a></li>
 
                                     </ul>
 
@@ -70,12 +72,12 @@ opacity :0.5;
                              <ul class="nav navbar-nav" >
 
                                  {% else %}
-                                  <li class="logout"><a href="#"><span class="glyphicon glyphicon-user"></span>&nbsp;التسجيل</a></li>
-                                 <li class="login"><a href="#"><span class="glyphicon glyphicon-log-in"></span>&nbsp;الدخول</a></li>
+                                  <li class="logout"><a href="{% url 'stories:register_user' %}"><span class="glyphicon glyphicon-user"></span>&nbsp;التسجيل</a></li>
+                                 <li class="login"><a href="{% url 'stories:login_user' %}"><span class="glyphicon glyphicon-log-in"></span>&nbsp;الدخول</a></li>
                                  {% endif %}
                                      <form class="navbar-form navbar-nav">
-  <div class="input-group">
-    <input type="text" class="form-control" placeholder="Search">
+  <div class="input-group" >
+    <input type="text" align="right" class="form-control" placeholder="البحث">
     <div class="input-group-btn">
       <button class="btn btn-default" type="submit">
         <i class="glyphicon glyphicon-search"></i>
@@ -86,10 +88,7 @@ opacity :0.5;
 
 
                             </ul>
-                             <ul class="nav navbar-nav navbar-right" style="padding-right:6cm;">
-                                 <li><a href="#">القصص</a></li>
-                                <li><a href="{% url 'stories:new_story' %}">الحلقات</a></li>
-                             </ul>
+
 
                     </div>
                             </ul>
@@ -133,7 +132,7 @@ for (i = 0; i < acc.length; i++) {
 </script>
 
 <footer>
-        <p>© 2017<a style="color:#0a93a6; text-decoration:none;" href="#"> BootSnipp And TomGeek76</a>, All rights reserved 2016-2017.</p>
+        <p>.© جميع الحقوق محفوظة 2016-2017 , <a style="color:#0a93a6; text-decoration:none;" href="#">جسور و الجميلة</a>,</p>
     </footer>
 </body>
 </html>

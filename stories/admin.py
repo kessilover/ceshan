@@ -4,7 +4,7 @@ from.models import Story, Comment,Chapter
 
 class StoryAdmin(admin.ModelAdmin):
 
-    list_display = ('id', 'title', 'author', 'summary', 'isCross')
+    list_display = ('id', 'title', 'author', 'summary')
     list_filter = ('author', 'author')
     ordering = ('pub_date',)
     search_fields = ('title', 'author')

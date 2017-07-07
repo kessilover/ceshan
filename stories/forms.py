@@ -17,7 +17,7 @@ class StoryForm(forms.ModelForm):
 
     class Meta:
         model = Story
-        fields = ['title', 'summary', 'tags', 'rating']
+        fields = ['title', 'summary', 'story_cover']
 
 
 class ChapterForm(forms.ModelForm):
