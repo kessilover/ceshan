@@ -11,11 +11,14 @@ urlpatterns = [
     url(r'^logout_user/$', views.logout_user, name="logout_user"),
     url(r'^story/(?P<story_id>[0-9]+)/page/(?P<page>[0-9]+)/$', views.post, name="post"),
     url(r'^user/$', views.user_profile, name="profile"),
-    url(r'^add_story/$', views.add_story, name="new_story"),
+    url(r'^addstory/$', views.add_story, name="new_story"),
     url(r'^user/edit_profile/$', views.editprofile, name='edit_profile'),
     url(r'^s/(?P<story_id>[0-9]+)/add_chapter/$', views.addChapter, name="add_chapter"),
     url(r'^delete_story/(?P<story_id>[0-9]+)/$', views.delete_story, name="delete_story"),
-    url(r'addcomment/(?P<story_id>[0-9]+)/$', views.addcomment, name="addcomment"),
+    url(r'^addcomment/(?P<story_id>[0-9]+)/$', views.addcomment, name="addcomment"),
+    url(r'^edit_story/(?P<pk>[0-9]+)/$', views.EditStory.as_view(), name="edit_story"),
+    url(r'^story/(?P<story_id>[0-9]+)/$', views.manageChapters, name="chapters")
+
 
 
 ]

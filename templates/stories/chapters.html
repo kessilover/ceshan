@@ -1,0 +1,11 @@
+{% if chapters %}
+
+<table>
+    {% for chapter in chapters %}
+    <tr>
+        <td>{{chapter.title}}</td></tr>
+    {% endfor%}
+</table>
+{%else%}
+<h1>NO chapters in here</h1>
+{% endif%}

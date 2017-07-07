@@ -129,6 +129,9 @@ body {
                     <br><br>
                     <form class="form-horizontal"id="form1" method="post" action="">
                             {% csrf_token %}
+                        <label for="title">Title</label>
+                        <input type="text" id="title" name="title" class="form-control">
+                        <br>
                         <textarea id="chapter" name="chapter"></textarea>
                     <input type="submit" class="btn btn-default">
                     <input type="reset" class="btn btn-default">

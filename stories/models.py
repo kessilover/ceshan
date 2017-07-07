@@ -36,6 +36,7 @@ class Comment(models.Model):
 
 class Chapter(models.Model):
     story = models.ForeignKey(Story)
+    title = models.CharField(max_length=50, null=None)
     chapter_number = models.IntegerField(editable=False, default=1)
     chapter = HTMLField()
     update_time = models.DateField(auto_now_add=True)

@@ -1,5 +1,5 @@
-from itertools import chain
-
+from django.views.generic import UpdateView
+from django.core.urlresolvers import reverse_lazy
 from django.shortcuts import render, redirect
 from django.contrib.auth import login, authenticate, logout
 from .forms import UserForm, StoryForm, ChapterForm, CommentForm
@@ -113,6 +113,7 @@ def addChapter(request, story_id):
         if form.is_valid():
             chapter = form.save(commit=False)
             texts = request.POST["chapter"]
+            title = request.POST["title"]
             chapter.chapter= texts
             story = Story.objects.get(id=story_id)
             chapter.story = story
@@ -144,5 +145,37 @@ def addcomment(request, story_id):
         chapters = story.chapter_set.all()
         return redirect('stories:post', story_id)
     return render(request, 'stories/post.html', {'story' : story, 'chapters' : chapters})
+
+class EditStory(UpdateView):
+    model = Story
+    fields = ['title', 'summary', 'tags', 'rating']
+    template_name = 'stories/add_story.html'
+    success_url = reverse_lazy('stories:profile')
+
+    def user_passes_test(self, request):
+        if request.user.is_authenticated():
+            self.object = self.get_object()
+            return self.object.author == request.user
+        return False
+
+    def dispatch(self, request, *args, **kwargs):
+        if not self.user_passes_test(request):
+            return redirect('stories:login_user')
+        return super(EditStory, self).dispatch(
+            request, *args, **kwargs)
+
+def manageChapters(request, story_id):
+    s = Story.objects.get(id=story_id)
+    user = s.author
+    if not request.user.is_authenticated() and request.user != user:
+        redirect('stories:login_user')
+    else:
+        story = Story.objects.get(id = story_id)
+        chapters = story.chapter_set.all()
+        return render(request, 'stories/chapters.html', {'chapters' : chapters})
+
+
+
+
 
 

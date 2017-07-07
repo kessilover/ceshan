@@ -24,7 +24,7 @@ class ChapterForm(forms.ModelForm):
 
     class Meta:
         model = Chapter
-        fields = ['chapter']
+        fields = ['chapter', 'title']
 
 
 class CommentForm(forms.ModelForm):
