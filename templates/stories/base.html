@@ -1,5 +1,5 @@
 <html>
-</head>
+<head>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 <link rel="stylesheet" href="https://bootswatch.com/cosmo/bootstrap.min.css">
@@ -80,6 +80,27 @@ overflow: hidden;
 body {
     background-color: #e8e8e8;
 }
+#id_title, #id_summary, #id_tags{
+
+        width : 100% !important;
+
+        }
+        #id_summary{
+        .form-control;
+        height : 3cm;
+        width:100%;
+        }
+        #id_rating{
+        width:10cm;
+
+        }
+        textarea{
+    resize : none;
+    width:100%;
+    }
+
+
+
 </style>
 <head>
     <body>
@@ -105,12 +126,16 @@ body {
 
                                  <li>
                                      <a href="{% url 'stories:profile' %}"><span class="glyphicon glyphicon-user"></span>{{user.username}}</a>
+
+
+                                   <li>
+                                     <a href="{% url 'stories:new_story' %}">إضافة قصص</a>
+                                 </li>
                                     </ul>
 
 
                                  </div>
                                      </li>
-                             </ul>
 
 
 

@@ -1,25 +1,8 @@
 {% extends 'stories/base.html' %}
 {% block main %}
         <div style="padding-top:50px;"> </div>
-        <div class="col-lg-3 col-md-3">
-            <div class="panel panel-default">
-                <div class="panel-body">
-                    <div class="media">
-                        <div align="center">
-                            <img class="thumbnail img-responsive" src="https://lut.im/7JCpw12uUT/mY0Mb78SvSIcjvkf.png" width="300px" height="300px">
-                        </div>
-                        <div class="media-body">
-                            <hr>
-                            <h3><strong>Bio</strong></h3>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur vel gravida metus, non ultrices sapien. Morbi odio metus, dapibus non nibh id amet.</p>
-                            <hr>
-
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col-lg-9 col-md-9 col-sm-12 col-xs-12">
+  <div class="col-lg-2 col-md-2"></div>
+        <div class="col-lg-8 col-md-9 col-sm-12 col-xs-12">
             {% if stories %}
             {% for s in stories %}
             <div class="panel panel-default">
@@ -41,11 +24,11 @@
                     <hr>
                     <div>
                         <div class="pull-right btn-group-xs">
-                            <a class="btn btn-success btn-xs" href="{% url 'stories:edit_story' s.id%}"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit</a>
-                            <a class="btn btn-danger btn-xs" href="{% url 'stories:delete_story' s.id %}"><i class="fa fa-trash" aria-hidden="true"></i> Delete</a>
+                            <a class="btn btn-success btn-xs" href="{% url 'stories:edit_story' s.id%}"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> تصحيح</a>
+                            <a class="btn btn-danger btn-xs" href="{% url 'stories:delete_story' s.id %}"><i class="fa fa-trash" aria-hidden="true"></i> حذف</a>
                         </div>
                         <div class="pull-left">
-                             <a class="btn btn-default btn-xs" href="{%url 'stories:add_chapter' s.id %}"><i class="fa fa-plus" aria-hidden="true"></i> Add Chapter</a>
+                             <a class="btn btn-default btn-xs" href="{%url 'stories:add_chapter' s.id %}"><i class="fa fa-plus" aria-hidden="true"></i> إضافة فصل</a>
 
                         </div>
                         <br>
@@ -56,7 +39,11 @@
             </div>
             {% endfor %}
             {% else %}
-            <h1>Add new stories</h1>
+            <div class="pull-right">
+            <h1>لم تنشر أي قصص بعد.</h1>
+
+            <a href="{% url 'stories:new_story' %}">يمكنك إضافة قصة إذا أردت </a>
+                </div>
             {% endif %}
         </div>
 {% endblock %}

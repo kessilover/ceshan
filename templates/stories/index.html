@@ -9,17 +9,17 @@
     <section id="blog-section" >
 
      <div class="container-fluid">
-<div class="row" id="image">
-             <img src="{% static 'stories/images/ceshan.png' %}" class="img-responsive">
-</div>
+
        <div class="row" >
 <!-- TAKEN -->
 <div class="container" style="padding-top:10px;">
     <hr>
+    {% if stories %}
+
     <h1>أحدث القصص</h1>
     <hr>
      {% for story in stories %}
-  <div class="well">
+  <div class="well" style="margin-bottom:50px;">
       <div class="media">
       	<a class="pull-left" href="#">
     		<img class="media-object img-responsive" src="{{story.story_cover.url}}" width="200" height="100%">
@@ -39,7 +39,7 @@
           <ul  class="list-inline list-unstyled">
   			<li><span><i class="glyphicon glyphicon-calendar"></i> {{story.pub_date}}</span></li>
             <li>|</li>
-            <span><i class="glyphicon glyphicon-comment"></i> {{story.comment_set.all.count}}</span>
+              <span><i class="glyphicon glyphicon-comment"></i> <a href="{% url 'stories:comments' story.id %}">{{story.comment_set.all.count}}</a></span>
 
 			</ul>
                 </div>
@@ -47,6 +47,10 @@
     </div>
   </div>
     {% endfor%}
+    {% else %}
+    <h1>لم يتم نشر أي قصص بعد</h1>
+    {% endif %}
+
 </div>
 <!-- END TAKEN-->
 

@@ -1,5 +1,6 @@
 <html><head>
-    <title>Hello</title>
+    <title>إضافة فصل جديد</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 <link rel="stylesheet" href="https://bootswatch.com/cosmo/bootstrap.min.css">
     <script src="https://cloud.tinymce.com/stable/tinymce.min.js?apikey=f20k9qkm3e9ed7zjkspbbw2eo8be1mmp5voesvuebe1iz4gd"></script>
@@ -82,7 +83,7 @@ body {
 <body>
 <div class="mainbody container-fluid">
     <div class="row">
-         <div class="navbar-wrapper">
+    <div class="navbar-wrapper">
               <div class="navbar navbar-default navbar-static-top" role="navigation">
                     <div class="container-fluid">
                         <div class="navbar-header navbar-right">
@@ -95,17 +96,26 @@ body {
                             <a class="navbar-brand navbar-right" href="{% url 'stories:home' %}">  جسور و الجميلة*</a>
 
                         </div>
-                          <div class="navbar-collapse collapse">
-                            <ul class="nav navbar-nav navbar-right" style="padding-right:10cm;">
-                                 <li style="padding-right:5cm;"><a href="{% url 'stories:logout_user' %}"><span class="glyphicon glyphicon-log-in"></span> 	&nbsp;الخروج</a></li>
+                            <div class="navbar-collapse collapse">
+                             <ul class="nav navbar-nav">
 
 
-                                <li style="padding-right:10cm; font-size:20px;"><a href="{% url 'stories:new_story' %}">إضافة قصة </a></li>
-                            </ul>
-                            <ul class="nav navbar-nav navbar-left">
+                                 <li>
+                                     <a href="{% url 'stories:profile' %}"><span class="glyphicon glyphicon-user"></span>{{user.username}}</a>
 
-                            </ul>
-                        </div>
+
+                                   <li>
+                                     <a href="{% url 'stories:new_story' %}">إضافة قصص</a>
+                                 </li>
+                                    </ul>
+
+
+                                 </div>
+                                     </li>
+
+
+
+                    </div>
 
 
 
@@ -113,9 +123,8 @@ body {
 
 
                     </div>
-                            </ul>
+
                         </div>
-                    </div>
         <div style="padding:50px;">&nbsp;</div>
 
         <div class="col-lg-offset-2 col-md-offset-2 col-lg-8 col-md-8 col-sm-12 col-xs-12">
@@ -124,17 +133,17 @@ body {
                     {% if error %}
                     <h1>{{error}}</h1>
                     {% else %}
-                    <h1 class="panel-title pull-left" style="font-size:30px;">Add A New Chapter</h1>
+                    <h1 class="panel-title pull-right" style="font-size:30px;">إضافة فصل جديد</h1>
                     {% endif %}
                 </div>
             </div>
             <div class="panel panel-default">
                 <div class="panel-body">
-                    <h3 class="panel-title pull-left">Chapter</h3>
+
                     <br><br>
-                    <form class="form-horizontal"id="form1" method="post" action="">
+                    <form  class="form-horizontal"id="form1" method="post" action="">
                             {% csrf_token %}
-                        <label for="title">Title</label>
+                        <label for="title">اسم القصة</label>
                         <input type="text" id="title" name="title" class="form-control">
                         <br>
                         <textarea id="chapter" name="chapter"></textarea>

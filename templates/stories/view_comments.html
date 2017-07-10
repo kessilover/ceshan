@@ -1,0 +1,26 @@
+{% extends 'stories/core.html' %}
+{% block main %}
+
+
+
+
+<div class="container" style="margin-top:60px;">
+    <div class="col-lg-2 col-sm-2 "></div>
+    <div class="col-lg-8 col-sm-8 text-right ">
+
+    <div class="well">
+
+    <ul data-brackets-id="12674" id="sortable" class="list-unstyled ui-sortable">
+        {% for comment in comments %}
+        <strong class="pull-right primary-font"> : {{comment.writer}}</strong>
+
+        </br>
+        <li class="ui-state-default">{{comment.comment}}</li>
+        </br>
+        <hr data-brackets-id="12673">
+        {% endfor%}
+    </ul>
+    </div>
+    </div>
+</div>
+{% endblock %}

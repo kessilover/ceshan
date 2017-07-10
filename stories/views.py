@@ -6,7 +6,11 @@ from .forms import UserForm, StoryForm, ChapterForm, CommentForm
 from .models import Story, Comment
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 
-# HomePage
+
+
+def welcome(request):
+    return render(request,'stories/alt.html')
+# ReadPage
 def index(request):
     stories = Story.objects.filter(has_chapter=True)
     if request.user.is_authenticated():
@@ -88,7 +92,7 @@ def add_story(request):
     if not request.user.is_authenticated():
         return redirect('stories:login_user')
     else:
-        form = StoryForm(request.POST,  request.FILES or None)
+        form = StoryForm(request.POST or None,  request.FILES or None)
         if form.is_valid():
             story = form.save(commit=False)
             story.author = request.user
@@ -174,7 +178,10 @@ def manageChapters(request, story_id):
         return render(request, 'stories/chapters.html', {'story' : story})
 
 
-
+def viewComment(request,story_id):
+    story = Story.objects.get(id = story_id)
+    comments = story.comment_set.all()
+    return render(request, 'stories/view_comments.html', {'comments' : comments})
 
 
 

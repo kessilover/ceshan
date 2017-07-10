@@ -1,5 +1,12 @@
-
-body{background-color:#f5fbef;}
+html{
+  position:relative;
+  min-height: 100%;
+}
+body{
+margin:0;
+   padding:0;
+   height:100%;
+background-color:#f5fbef;}
 
 
 .navbar {
@@ -19,7 +26,6 @@ body{background-color:#f5fbef;}
 
     float: left;
     height:auto;
-    padding: 20px 10px !important;
     font-size: 18px;
     line-height: 20px;
     font-family: 'Cairo', sans-serif;
@@ -346,9 +352,11 @@ padding : 5px;
 
 footer{
     background-color: #252626;
-    position: relative;
+    margin-top:50px;
+    position: absolute;
     bottom: 0;
     left:0;
+    right:0;
     width:100%;
     height: 45px;
     text-align: center;

@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load staticfiles %}
+  <!-- Theme Made By www.w3schools.com - No Copyright -->
+  <title>جسور و الجميلة</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <style>
+  body {
+      font: 20px Montserrat, sans-serif;
+
+      color: #f5f6f7;
+  }
+  .navbar-brand {
+
+    float: left;
+    height:auto;
+    font-size: 18px;
+    line-height: 20px;
+    font-family: 'Arial', sans-serif;
+}
+  p {font-size: 16px;}
+  .margin {margin-bottom: 45px;}
+  .bg-1 {
+      background-color: #1abc9c; /* Green */
+      color: #ffffff;
+  }
+  .bg-2 {
+      background-color: #474e5d; /* Dark Blue */
+      color: #ffffff;
+  }
+  .bg-3 {
+      background-color: #ffffff; /* White */
+      color: #555555;
+  }
+  .bg-4 {
+      background-color: #2f2f2f; /* Black Gray */
+      color: #fff;
+  }
+  .container-fluid {
+      padding-top: 70px;
+      padding-bottom: 70px;
+  }
+  .navbar {
+      padding-top: 15px;
+      padding-bottom: 15px;
+      border: 0;
+      border-radius: 0;
+      margin-bottom: 0;
+      font-size: 18px;
+
+  }
+  .navbar-nav  li a:hover {
+      color: #1abc9c !important;
+  }
+  </style>
+</head>
+<body>
+
+<!-- Navbar -->
+<nav class="navbar navbar-default">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#">جسور و الجميلة</a>
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav navbar-right">
+
+        <li><a href="{% url 'stories:home' %}">القراءة</a></li>
+
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- First Container -->
+<div class="container-fluid bg-1 text-center">
+  <h3 class="margin">ما هذا؟</h3>
+  <img src="{% static 'stories/images/ceshan.jpg' %}" class="img-responsive" style="display:inline" alt="Bird">
+  <h3 align="text-right">"موقع للمسلسل التركي "جسور والجميلة</h3>
+</div>
+
+<!-- Second Container -->
+<div class="container-fluid bg-2 text-center">
+  <h3 class="margin">ما هو الغرض منه؟</h3>
+  <p>هذا الموقع مخصص لمحبي هذا المسلسل و الذين يرغبون في قراءة وكتابة القصص عن الجسوهان</p>
+
+</div>
+
+<!-- Third Container (Grid) -->
+<div class="container-fluid bg-3 text-center">
+  <h3 class="margin">ماذا يمكنني أن أفعل</h3><br>
+  <div class="row">
+    <div class="col-sm-4">
+        <h3>القراءة</h3>
+      <p>يمكنك قراءة القصص عن هذه السلسلة. تم تصميم هذا الموقع لتسهيل عملية القراءة باستخدام الهاتف</p>
+
+    </div>
+    <div class="col-sm-4">
+         <h3>الكتابة</h3>
+      <p>هل لديك فكرة كنت ترغب في أن تكون قد رأيتها على الشاشة مع سوهان و جسور. حسنا، الآن يمكنك كتابة فكرتك ومشاركتها مع الآخرين</p>
+
+    </div>
+    <div class="col-sm-4">
+         <h3>اعطي رأيك</h3>
+      <p >هل قرأت قصة وكنت تريد أن تعطي المؤلف تعليقاتك ربما لتشجيعهم. يمكنك أن تفعل ذلك وكذلك ببساطة عن طريق نشر تعليق</p>
+
+    </div>
+  </div>
+</div>
+
+<!-- Footer -->
+<footer class="container-fluid bg-4 text-center">
+  <p>"موقع على شبكة الإنترنت حصريا لنشر قصص  للمسلسل التركي "جسور و الجميلة</p>
+</footer>
+
+</body>
+</html>
